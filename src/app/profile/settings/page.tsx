@@ -7,7 +7,7 @@ const SettingOptions = [
   {
     name: 'Trash Bin',
     icon: Icons.trash,
-    href: '#'
+    href: '/profile/settings/trash-bin'
   },
   {
     name: 'Notification',
@@ -67,3 +67,6 @@ export default function SettingsPage() {
   );
 }
 
+
+
+    
