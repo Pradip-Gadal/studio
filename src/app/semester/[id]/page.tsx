@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
@@ -21,7 +22,7 @@ interface Props {
 }
 
 export default function SemesterPage({params}: Props) {
-  const semesterId = params.id;
+  const semesterId = React.use(React.createElement(React.Fragment, null, params.id));
 
   return (
     <div className="container py-10">
