@@ -33,7 +33,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6">MSC.Physics</h1>
       <Grid>
         {semesters.map((semester) => (
-          <Card key={semester.id} className="hover:shadow-md transition-shadow flex flex-col h-64 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200">
+          <Card key={semester.id} className="hover:shadow-md transition-shadow flex flex-col h-80 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200">
             <CardHeader>
               <CardTitle>{semester.name}</CardTitle>
             </CardHeader>
