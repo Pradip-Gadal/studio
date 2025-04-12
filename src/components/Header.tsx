@@ -8,7 +8,7 @@ import * as Primitive from "@radix-ui/react-avatar"
 import { ProfilePictureContext } from "@/app/_app";
 
 export function Header() {
-  const { profilePicture } = useContext(ProfilePictureContext);
+  const { profilePicture, userDetails } = useContext(ProfilePictureContext);
 
   return (
     <header className="bg-secondary border-b py-4">
@@ -28,7 +28,7 @@ export function Header() {
         <Link href="/profile">
           <Avatar>
             <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={profilePicture || "https://picsum.photos/50/50"}/>
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback>{(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'NC'}{(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}</AvatarFallback>
           </Avatar>
         </Link>
       </div>

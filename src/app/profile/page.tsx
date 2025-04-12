@@ -16,6 +16,8 @@ export default function ProfilePage() {
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.",
   });
 
+  const fullName = userDetails.firstName ? `${userDetails.firstName} ${userDetails.lastName || ''}` : localUserDetails.name;
+
   const description = userDetails.university
     ? `${userDetails.course || localUserDetails.major} at ${userDetails.university}`
     : localUserDetails.major;
@@ -26,10 +28,10 @@ export default function ProfilePage() {
         <div className="relative">
           <Avatar className="h-24 w-24">
             <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={profilePicture || "https://picsum.photos/100/100"}/>
-            <AvatarFallback>NC</AvatarFallback>
+            <AvatarFallback>{(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'NC'}{(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}</AvatarFallback>
           </Avatar>
         </div>
-        <h1 className="text-2xl font-bold mt-4">{localUserDetails.name}</h1>
+        <h1 className="text-2xl font-bold mt-4">{fullName}</h1>
         <p className="text-sm text-muted-foreground">{description}</p>
         <p className="text-sm text-muted-foreground text-center mt-2">
           {localUserDetails.bio}
@@ -68,12 +70,9 @@ export default function ProfilePage() {
           </div>
           <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
         </Link>
-      </div>
 
-      <Button className="w-full mt-8">Logout</Button>
+        <Button className="w-full mt-8">Logout</Button>
+      </div>
     </div>
   );
 }
-
-
-

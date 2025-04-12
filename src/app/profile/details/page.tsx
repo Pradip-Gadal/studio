@@ -12,6 +12,8 @@ import { useRouter } from 'next/navigation';
 
 export default function ProfileDetailsPage() {
   const { profilePicture, setProfilePicture, userDetails, setUserDetails } = useContext(ProfilePictureContext);
+  const [firstName, setFirstName] = useState(userDetails.firstName || '');
+  const [lastName, setLastName] = useState(userDetails.lastName || '');
   const [university, setUniversity] = useState(userDetails.university);
   const [course, setCourse] = useState(userDetails.course);
   const [yearSemester, setYearSemester] = useState(userDetails.yearSemester);
@@ -30,6 +32,8 @@ export default function ProfileDetailsPage() {
     // In a real application, you would send this data to a backend
     // for persistence.
     setUserDetails({
+      firstName: firstName,
+      lastName: lastName,
       university: university,
       course: course,
       yearSemester: yearSemester,
@@ -53,7 +57,7 @@ export default function ProfileDetailsPage() {
               alt="Profile"
               src={profilePicture || "https://picsum.photos/100/100"}
             />
-            <AvatarFallback>NC</AvatarFallback>
+            <AvatarFallback>{(firstName && firstName[0].toUpperCase()) || 'NC'}{(lastName && lastName[0].toUpperCase()) || ''}</AvatarFallback>
           </Avatar>
           <label htmlFor="image-upload">
             <Button size="icon" className="absolute bottom-0 right-0 rounded-full shadow-md" >
@@ -71,6 +75,20 @@ export default function ProfileDetailsPage() {
 
         {/* Form Inputs */}
         <div className="w-full max-w-md mt-8 space-y-4">
+          <div className="flex space-x-2">
+            <Input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
           <div>
             <Input
               type="text"
@@ -107,4 +125,3 @@ export default function ProfileDetailsPage() {
     </div>
   );
 }
-
