@@ -1,14 +1,17 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {ProfilePictureContext} from "@/app/_app";
 
 export default function UploadPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedSemester, setSelectedSemester] = useState<string>('');
   const [selectedBook, setSelectedBook] = useState<string>('');
+
+  const { userDetails } = useContext(ProfilePictureContext);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -27,6 +30,30 @@ export default function UploadPage() {
     }
   };
 
+    // Extract subjects from userDetails or default to empty array if userDetails is undefined
+    const semesters = [
+      {
+        id: 1,
+        name: "Semester 1",
+        subjects: ["Book1", "Book2", "Book3", "Book4", "ExperimentA", "ExperimentB"],
+      },
+      {
+        id: 2,
+        name: "Semester 2",
+        subjects: ["Book5", "Book6", "Book7", "Book8", "ExperimentC", "ExperimentD"],
+      },
+      {
+        id: 3,
+        name: "Semester 3",
+        subjects: ["Book9", "Book10", "Book11", "Book12", "ExperimentE", "ExperimentF"],
+      },
+      {
+        id: 4,
+        name: "Semester 4",
+        subjects: ["Book13", "Book14", "Book15", "Book16", "ExperimentG", "ExperimentH"],
+      },
+    ];
+
   const courseMaps = {
     "1": ["Book1", "Book2", "Book3", "Book4", "ExperimentA", "ExperimentB"],
     "2": ["Book5", "Book6", "Book7", "Book8", "ExperimentC", "ExperimentD"],
@@ -39,50 +66,55 @@ export default function UploadPage() {
   }, [selectedSemester]);
 
   return (
-    <div className="container py-10">
-      <h1 className="text-2xl font-bold mb-4">Upload Files</h1>
-      <div className="space-y-4">
-        <div>
-          <Select onValueChange={setSelectedSemester}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select Semester" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="1">Semester 1</SelectItem>
-              <SelectItem value="2">Semester 2</SelectItem>
-              <SelectItem value="3">Semester 3</SelectItem>
-              <SelectItem value="4">Semester 4</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+    
+      
+        Upload Files
+      
+      
+        
+          
+            
+              Select Semester
+            
+            
+              {semesters.map((semester) => (
+                
+                  {semester.name}
+                
+              ))}
+            
+          
+        
 
         {selectedSemester && (
-          <div>
-            <Select onValueChange={setSelectedBook} disabled={!selectedSemester}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select Book" />
-              </SelectTrigger>
-              <SelectContent>
+          
+            
+              
+                Select Book
+              
+              
                 {bookOptions.map((book) => (
-                  <SelectItem key={book} value={book}>{book}</SelectItem>
+                  
+                    {book}
+                  
                 ))}
-              </SelectContent>
-            </Select>
-          </div>
+              
+            
+          
         )}
 
-        <div>
-          <Input type="file" onChange={handleFileChange} />
-        </div>
-        <Button onClick={handleUpload} disabled={!selectedFile || !selectedSemester || !selectedBook}>
+        
+          
+        
+        
           Upload File
-        </Button>
+        
         {selectedFile && (
-          <p className="text-sm text-muted-foreground">
+          
             Selected file: {selectedFile.name}
-          </p>
+          
         )}
-      </div>
-    </div>
+      
+    
   );
 }

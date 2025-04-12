@@ -47,28 +47,20 @@ export default function Home() {
 
       <Grid>
         {semesters.map((semester) => (
-          <Card
-            key={semester.id}
-            className="hover:shadow-md transition-shadow flex flex-col h-64 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200 cursor-pointer"
-          >
-            <CardHeader>
-              <CardTitle>{semester.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-wrap justify-center items-start h-full overflow-y-auto">
+          
+            
+              {semester.name}
+            
+            
               {semester.subjects.map((subject) => (
-                <Link
-                  href={`/semester/${subject}`}
-                  key={subject}
-                  className="m-1 px-4 py-2 rounded-full bg-secondary text-primary hover:bg-accent hover:text-accent-foreground shadow-md transition-colors duration-200 border border-gray-300"
-                >
+                
                   {subject}
-                </Link>
+                
               ))}
-            </CardContent>
-          </Card>
+            
+          
         ))}
       </Grid>
     </div>
   );
 }
-

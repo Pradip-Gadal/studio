@@ -53,78 +53,48 @@ export default function ProfileDetailsPage() {
   const avatarSrc = profilePicture || userDetails.profilePicture || "https://via.placeholder.com/100";
 
   return (
-    <div className="container py-10">
-      <div className="flex flex-col items-center">
+    
+      
         {/* Avatar with Edit Button */}
-        <div className="relative">
-          <Avatar className="h-24 w-24">
-            {/* Updated src logic: profilePicture > userDetails.profilePicture > placeholder */}
-            <AvatarImage
-              className="aspect-square h-full w-full"
-              alt="Profile"
-              src={avatarSrc}
-            />
-            <AvatarFallback>{(firstName && firstName[0].toUpperCase()) || 'N'}{(lastName && lastName[0].toUpperCase()) || ''}</AvatarFallback>
-          </Avatar>
-          <label htmlFor="image-upload">
-            <Button size="icon" className="absolute bottom-0 right-0 rounded-full shadow-md" >
-              <Icons.edit className="h-4 w-4" />
-            </Button>
-          </label>
-          <Input
-            type="file"
-            id="image-upload"
-            accept="image/*"
-            className="hidden"
-            onChange={handleImageChange}
-          />
-        </div>
+        
+          
+            {/* Updated src logic: profilePicture &gt; userDetails.profilePicture &gt; placeholder */}
+            
+              {(firstName && firstName[0].toUpperCase()) || 'N'}{(lastName && lastName[0].toUpperCase()) || ''}
+            
+          
+          
+            
+          
+          
+            
+              
+            
+          
+        
 
         {/* Form Inputs */}
-        <div className="w-full max-w-md mt-8 space-y-4">
-          <div className="flex space-x-2">
-            <Input
-              type="text"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-            <Input
-              type="text"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              placeholder="University/College"
-              value={university}
-              onChange={(e) => setUniversity(e.target.value)}
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              placeholder="Course"
-              value={course}
-              onChange={(e) => setCourse(e.target.value)}
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              placeholder="Year/Semester"
-              value={yearSemester}
-              onChange={(e) => setYearSemester(e.target.value)}
-            />
-          </div>
+        
+          
+            
+              
+              
+            
+          
+          
+            
+          
+          
+            
+          
+          
+            
+          
 
           {/* Update Button */}
-          <Button className="w-full" onClick={handleUpdate}>Update</Button>
-        </div>
-      </div>
-    </div>
+          Update
+        
+      
+    
   );
 }

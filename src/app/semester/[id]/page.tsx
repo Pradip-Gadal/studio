@@ -143,34 +143,34 @@ export default function SemesterPage({ params }: Props) {
   const notes = mockNotes[id] || [];
 
   return (
-    <div className="container py-10">
-      <h1 className="text-2xl font-bold mb-4">Notes for {id}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    
+      
+        Notes for {id}
+      
+      
         {notes.map((note) => (
-          <Card key={note.id}>
-            <CardHeader>
-              <CardTitle>{note.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="flex items-center justify-between">
-              <span>File Type: {note.fileType.toUpperCase()}</span>
-              <div>
-                <Link href={note.url}>
-                  <Button variant="outline" size="sm">
+          
+            
+              
+            
+            
+              
+                File Type: {note.fileType.toUpperCase()}
+                
+                  
                     View
-                  </Button>
-                </Link>
-                <Link href={note.url}>
-                  <Button size="sm" className="ml-2">
+                  
+                
+                
+                  
                     Download
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
+                  
+                
+              
+            
+          
         ))}
-      </div>
-    </div>
+      
+    
   );
 }
-
-

@@ -36,68 +36,61 @@ export default function ProfilePage() {
 
   return (
     // Apply conditional padding based on screen size
-    <div className={cn("container", isMobile ? "py-4" : "py-10")}>
-      <div className="flex flex-col items-center">
-        <div className="relative">
-          <Avatar className={cn("", isMobile ? "h-16 w-16" : "h-24 w-24")}>
-            <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={avatarSrc}/>
-            <AvatarFallback>{(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'N'}{(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}</AvatarFallback>
-          </Avatar>
-          <label htmlFor="image-upload">
-            <Button size="icon" className={cn("absolute bottom-0 right-0 rounded-full shadow-md", isMobile ? "h-6 w-6" :"h-4 w-4")} >
-              <Icons.edit className={cn("", isMobile ? "h-3 w-3" : "h-4 w-4")} />
-            </Button>
-          </label>
-          <Input
-              type="file"
-              id="image-upload"
-              accept="image/*"
-              className="hidden"
-              onChange={handleImageChange}
-          />
-        </div>
-        <Link href="/profile/details" className="flex flex-col items-center">
-          <h1 className={cn("text-2xl font-bold mt-4", isMobile ? "text-xl" : "")}>{fullName}</h1>
-          <p className={cn("text-sm text-muted-foreground", isMobile ? "text-xs" : "")}>{description}</p>
-        </Link>
-      </div>
+    
+      
+        
+          
+            
+              
+              {(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}
+            
+          
+          
+            
+              
+            
+          
+        
+        
+          
+            
+            
+          
+        
+      
 
       {/* Apply conditional margin based on screen size */}
-      <div className={cn("space-y-4", isMobile ? "mt-6" : "mt-8")}>
-        <Link href="/profile/details" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
-          <div className="flex items-center space-x-3">
-            <Icons.user className="h-5 w-5 text-muted-foreground"/> 
-            <span>User Details</span>
-          </div>
-          <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
-        </Link>
-
-        <Link href="/profile/upload" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
-          <div className="flex items-center space-x-3">
-            <Icons.file className="h-5 w-5 text-muted-foreground"/>
-            <span>Upload Files</span>
-          </div>
-          <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
-        </Link>
-
-        <Link href="/profile/uploaded-files" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
-          <div className="flex items-center space-x-3">
-            <Icons.heart className="h-5 w-5 text-muted-foreground"/>
-            <span>Uploaded Files</span>
-          </div>
-          <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
-        </Link>
-
-        <Link href="/profile/settings" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
-          <div className="flex items-center space-x-3">
-            <Icons.settings className="h-5 w-5 text-muted-foreground"/>
-            <span>Settings</span>
-          </div>
-          <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
-        </Link>
-
-        <Link href="/" className={cn("w-full flex items-center justify-center p-4 rounded-md hover:bg-secondary", isMobile ? "mt-6" : "mt-8")}>Logout</Link>
-      </div>
-    </div>
+      
+        
+          
+            
+            User Details
+          
+          
+        
+        
+          
+            
+            Upload Files
+          
+          
+        
+        
+          
+            
+            Uploaded Files
+          
+          
+        
+        
+          
+            
+            Settings
+          
+          
+        
+        Logout
+      
+    
   );
 }
