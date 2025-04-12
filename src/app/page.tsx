@@ -33,19 +33,24 @@ export default function Home() {
 
   return (
     <div className="container py-10">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">MSC.Physics</h1>
-        <div className="flex items-center gap-2">
-          <Input type="search" placeholder="Search notes..." className="max-w-sm" />
+      <h1 className="text-3xl font-bold mb-6">MSC.Physics</h1>
+      {/* Search Bar Section */}
+      <div className="w-full flex justify-center items-center mb-6">
+        <div className="flex items-center gap-2 w-full max-w-md">
+          <Input type="search" placeholder="Search notes..." className="flex-1" />
           <Button className="flex items-center">
             <Icons.search className="mr-2" />
             Search
           </Button>
         </div>
       </div>
+
       <Grid>
         {semesters.map((semester) => (
-          <Card key={semester.id} className="hover:shadow-md transition-shadow flex flex-col h-80 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200">
+          <Card
+            key={semester.id}
+            className="hover:shadow-md transition-shadow flex flex-col h-64 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+          >
             <CardHeader>
               <CardTitle>{semester.name}</CardTitle>
             </CardHeader>
@@ -66,3 +71,4 @@ export default function Home() {
     </div>
   );
 }
+
