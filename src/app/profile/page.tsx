@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useContext } from "react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
@@ -93,3 +93,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+

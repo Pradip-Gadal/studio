@@ -1,11 +1,9 @@
-'use client';
-
 import type {Metadata} from 'next';
 import {Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
-import React, { createContext, useState, useContext } from 'react';
+import React from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,22 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-interface ProfilePictureContextType {
-  profilePicture: string | null;
-  setProfilePicture: React.Dispatch<React.SetStateAction<string | null>>;
-}
-
-export const ProfilePictureContext = createContext<ProfilePictureContextType>({
-  profilePicture: null,
-  setProfilePicture: () => {},
-});
+export const metadata: Metadata = {
+  title: 'CourseNotes',
+  description: 'Share and Download Course Notes',
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [profilePicture, setProfilePicture] = useState<string | null>(null);
 
   return (
     <html lang="en">

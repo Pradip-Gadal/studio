@@ -1,10 +1,11 @@
+'use client';
+
 import React, { useContext } from "react";
 import Link from "next/link";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import * as Primitive from "@radix-ui/react-avatar"
 import { ProfilePictureContext } from "@/app/_app";
 
 export function Header() {
@@ -35,3 +36,4 @@ export function Header() {
     </header>
   );
 }
+

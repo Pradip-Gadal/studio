@@ -21,6 +21,7 @@ interface UserDetails {
   university: string;
   course: string;
   yearSemester: string;
+  bio?: string;
 }
 
 interface ProfilePictureContextType {
@@ -33,7 +34,7 @@ interface ProfilePictureContextType {
 export const ProfilePictureContext = createContext<ProfilePictureContextType>({
   profilePicture: null,
   setProfilePicture: () => {},
-  userDetails: { firstName: '', lastName: '', university: '', course: '', yearSemester: '' },
+  userDetails: { firstName: '', lastName: '', university: '', course: '', yearSemester: '', bio:'' },
   setUserDetails: () => {},
 });
 
@@ -43,7 +44,7 @@ interface Props {
 
 export default function App({children}: Props) {
   const [profilePicture, setProfilePicture] = useState<string | null>(null);
-  const [userDetails, setUserDetails] = useState<UserDetails>({ firstName: '', lastName: '', university: '', course: '', yearSemester: '' });
+  const [userDetails, setUserDetails] = useState<UserDetails>({ firstName: '', lastName: '', university: '', course: '', yearSemester: '', bio: '' });
 
   return (
     <html lang="en">
@@ -55,3 +56,4 @@ export default function App({children}: Props) {
     </html>
   );
 }
+

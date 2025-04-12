@@ -9,6 +9,7 @@ import {cn} from '@/lib/utils';
 import { ProfilePictureContext } from '@/app/_app';
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from 'next/navigation';
+import {Textarea} from "@/components/ui/textarea";
 
 export default function ProfileDetailsPage() {
   const { profilePicture, setProfilePicture, userDetails, setUserDetails } = useContext(ProfilePictureContext);
@@ -17,6 +18,7 @@ export default function ProfileDetailsPage() {
   const [university, setUniversity] = useState(userDetails.university || '');
   const [course, setCourse] = useState(userDetails.course || '');
   const [yearSemester, setYearSemester] = useState(userDetails.yearSemester || '');
+  const [bio, setBio] = useState(userDetails.bio || '');
   const { toast } = useToast();
   const router = useRouter();
 
@@ -35,6 +37,7 @@ export default function ProfileDetailsPage() {
       university: university,
       course: course,
       yearSemester: yearSemester,
+      bio: bio,
     });
 
     toast({
@@ -109,6 +112,13 @@ export default function ProfileDetailsPage() {
               placeholder="Year/Semester"
               value={yearSemester}
               onChange={(e) => setYearSemester(e.target.value)}
+            />
+          </div>
+          <div>
+            <Textarea
+                placeholder="Bio"
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
             />
           </div>
 
