@@ -13,14 +13,14 @@ export function Header() {
   return (
     <header className="bg-header-background border-b py-4">
       <div className="container flex items-center justify-between">
-      <Link href="/" className="text-xl font-bold text-header-foreground pl-2">
+        <Link href="/" className="text-xl font-bold text-header-foreground pl-2">
           Prototype
         </Link>
         <Link href="/profile">
           <Avatar>
             <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={headerAvatarSrc} />
             <AvatarFallback className="border border-border">
-              {(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'N'}
+              {(userDetails.firstName && userDetails.lastName[0].toUpperCase()) || 'N'}
               {(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}
             </AvatarFallback>
           </Avatar>
@@ -29,4 +29,5 @@ export function Header() {
     </header>
   );
 }
+
 
