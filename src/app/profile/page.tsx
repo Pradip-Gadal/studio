@@ -16,6 +16,10 @@ export default function ProfilePage() {
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.",
   });
 
+  const description = userDetails.university
+    ? `${userDetails.course || localUserDetails.major} at ${userDetails.university}`
+    : localUserDetails.major;
+
   return (
     <div className="container py-10">
       <div className="flex flex-col items-center">
@@ -26,7 +30,7 @@ export default function ProfilePage() {
           </Avatar>
         </div>
         <h1 className="text-2xl font-bold mt-4">{localUserDetails.name}</h1>
-        <p className="text-sm text-muted-foreground">{userDetails.course || localUserDetails.major}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
         <p className="text-sm text-muted-foreground text-center mt-2">
           {localUserDetails.bio}
         </p>
