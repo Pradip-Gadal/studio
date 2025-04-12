@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -27,13 +27,16 @@ export default function UploadPage() {
     }
   };
 
-  // Example book options - replace with actual data from your homepage
-  const bookOptions = [
-    "Book1", "Book2", "Book3", "Book4", "ExperimentA", "ExperimentB",
-    "Book5", "Book6", "Book7", "Book8", "ExperimentC", "ExperimentD",
-    "Book9", "Book10", "Book11", "Book12", "ExperimentE", "ExperimentF",
-    "Book13", "Book14", "Book15", "Book16", "ExperimentG", "ExperimentH"
-  ];
+  const courseMaps = {
+    "1": ["Book1", "Book2", "Book3", "Book4", "ExperimentA", "ExperimentB"],
+    "2": ["Book5", "Book6", "Book7", "Book8", "ExperimentC", "ExperimentD"],
+    "3": ["Book9", "Book10", "Book11", "Book12", "ExperimentE", "ExperimentF"],
+    "4": ["Book13", "Book14", "Book15", "Book16", "ExperimentG", "ExperimentH"],
+  };
+
+  const bookOptions = useMemo(() => {
+    return courseMaps[selectedSemester] || [];
+  }, [selectedSemester]);
 
   return (
     <div className="container py-10">
@@ -52,18 +55,22 @@ export default function UploadPage() {
             </SelectContent>
           </Select>
         </div>
-        <div>
-          <Select onValueChange={setSelectedBook}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select Book" />
-            </SelectTrigger>
-            <SelectContent>
-              {bookOptions.map((book) => (
-                <SelectItem key={book} value={book}>{book}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+
+        {selectedSemester && (
+          <div>
+            <Select onValueChange={setSelectedBook} disabled={!selectedSemester}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select Book" />
+              </SelectTrigger>
+              <SelectContent>
+                {bookOptions.map((book) => (
+                  <SelectItem key={book} value={book}>{book}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+
         <div>
           <Input type="file" onChange={handleFileChange} />
         </div>
