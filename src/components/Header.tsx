@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header className="bg-header-background border-b py-4">
       <div className="container flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-header-foreground pl-2">
+        <Link href="/" className="text-xl font-bold text-header-foreground pl-4">
           Prototype
         </Link>
         <Link href="/profile">
@@ -29,5 +29,3 @@ export function Header() {
     </header>
   );
 }
-
-
