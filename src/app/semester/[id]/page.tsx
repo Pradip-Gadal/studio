@@ -22,7 +22,7 @@ interface Props {
 }
 
 export default function SemesterPage({params}: Props) {
-  const semesterId = React.use(Promise.resolve(params.id));
+  const semesterId = React.use(params.id);
 
   return (
     <div className="container py-10">
@@ -54,3 +54,4 @@ export default function SemesterPage({params}: Props) {
     </div>
   );
 }
+
