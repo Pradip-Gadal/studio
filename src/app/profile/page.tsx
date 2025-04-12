@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
@@ -8,7 +8,18 @@ import Link from "next/link";
 import { ProfilePictureContext } from "@/app/layout";
 
 export default function ProfilePage() {
-  const { profilePicture } = useContext(ProfilePictureContext);
+  const { profilePicture, setProfilePicture } = useContext(ProfilePictureContext);
+  // This would normally be fetched from an API
+  const [userDetails, setUserDetails] = useState({
+    name: "Nisha Chaudhary",
+    major: "Engineering Student",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.",
+  });
+
+  // Callback to ensure the profile picture is updated in the header as well.
+  const handleImageChange = useCallback((newProfilePicture: string | null) => {
+    setProfilePicture(newProfilePicture);
+  }, [setProfilePicture]);
 
   return (
     <div className="container py-10">
@@ -19,10 +30,10 @@ export default function ProfilePage() {
             <AvatarFallback>NC</AvatarFallback>
           </Avatar>
         </div>
-        <h1 className="text-2xl font-bold mt-4">Nisha Chaudhary</h1>
-        <p className="text-sm text-muted-foreground">Engineering Student</p>
+        <h1 className="text-2xl font-bold mt-4">{userDetails.name}</h1>
+        <p className="text-sm text-muted-foreground">{userDetails.major}</p>
         <p className="text-sm text-muted-foreground text-center mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.
+          {userDetails.bio}
         </p>
       </div>
 

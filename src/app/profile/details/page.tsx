@@ -7,9 +7,14 @@ import {Icons} from '@/components/icons';
 import {Input} from '@/components/ui/input';
 import {cn} from '@/lib/utils';
 import { ProfilePictureContext } from '@/app/layout';
+import { useToast } from "@/hooks/use-toast"
 
 export default function ProfileDetailsPage() {
   const { profilePicture, setProfilePicture } = useContext(ProfilePictureContext);
+  const [university, setUniversity] = useState('');
+  const [course, setCourse] = useState('');
+  const [yearSemester, setYearSemester] = useState('');
+  const { toast } = useToast();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -17,6 +22,15 @@ export default function ProfileDetailsPage() {
       const imageUrl = URL.createObjectURL(file);
       setProfilePicture(imageUrl);
     }
+  };
+
+  const handleUpdate = () => {
+    // In a real application, you would send this data to a backend
+    // for persistence.
+    toast({
+      title: "Profile Updated!",
+      description: "Your profile has been updated successfully.",
+    });
   };
 
   return (
@@ -49,13 +63,28 @@ export default function ProfileDetailsPage() {
         {/* Form Inputs */}
         <div className="w-full max-w-md mt-8 space-y-4">
           <div>
-            <Input type="text" placeholder="University/College" />
+            <Input
+              type="text"
+              placeholder="University/College"
+              value={university}
+              onChange={(e) => setUniversity(e.target.value)}
+            />
           </div>
           <div>
-            <Input type="text" placeholder="Course" />
+            <Input
+              type="text"
+              placeholder="Course"
+              value={course}
+              onChange={(e) => setCourse(e.target.value)}
+            />
           </div>
           <div>
-            <Input type="text" placeholder="Year/Semester" />
+            <Input
+              type="text"
+              placeholder="Year/Semester"
+              value={yearSemester}
+              onChange={(e) => setYearSemester(e.target.value)}
+            />
           </div>
           <div>
             <Input type="file"  className="file:border-0 file:bg-muted file:text-muted-foreground" />
@@ -63,7 +92,7 @@ export default function ProfileDetailsPage() {
           </div>
 
           {/* Update Button */}
-          <Button className="w-full">Update</Button>
+          <Button className="w-full" onClick={handleUpdate}>Update</Button>
         </div>
       </div>
     </div>
