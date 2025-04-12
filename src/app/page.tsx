@@ -48,20 +48,18 @@ export default function Home() {
       <Grid>
         {semesters.map((semester) => (
           <Card key={semester.id} className="hover:bg-accent hover:scale-105 transition-transform duration-300">
-            <Link href={`/semester/${semester.id}`} className="block h-full">
-              <CardHeader>
-                <CardTitle className="text-xl text-center">{semester.name}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col items-center">
-                <div className="flex flex-wrap justify-center gap-2">
-                  {semester.subjects.map((subject) => (
-                    <Link key={subject} href={`/semester/${subject}`} className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-sm font-medium hover:bg-secondary/80 shadow-md transition-colors duration-200">
-                      {subject}
-                    </Link>
-                  ))}
-                </div>
-              </CardContent>
-            </Link>
+            <CardHeader>
+              <CardTitle className="text-xl text-center">{semester.name}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center">
+              <div className="flex flex-wrap justify-center gap-2">
+                {semester.subjects.map((subject) => (
+                  <Link key={subject} href={`/semester/${subject}`} className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-sm font-medium hover:bg-secondary/80 shadow-md transition-colors duration-200">
+                    {subject}
+                  </Link>
+                ))}
+              </div>
+            </CardContent>
           </Card>
         ))}
       </Grid>
