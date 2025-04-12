@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 export default function UploadPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedSemester, setSelectedSemester] = useState<string>('');
+  const [selectedBook, setSelectedBook] = useState<string>('');
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -18,13 +19,21 @@ export default function UploadPage() {
   };
 
   const handleUpload = () => {
-    if (selectedFile && selectedSemester) {
-      // Implement your upload logic here, including the selected semester
-      console.log('Uploading file:', selectedFile, 'to semester:', selectedSemester);
+    if (selectedFile && selectedSemester && selectedBook) {
+      // Implement your upload logic here, including the selected semester and book
+      console.log('Uploading file:', selectedFile, 'to semester:', selectedSemester, 'for book:', selectedBook);
     } else {
-      alert('Please select a file and a semester to upload.');
+      alert('Please select a file, a semester, and a book to upload.');
     }
   };
+
+  // Example book options - replace with actual data from your homepage
+  const bookOptions = [
+    "Book1", "Book2", "Book3", "Book4", "ExperimentA", "ExperimentB",
+    "Book5", "Book6", "Book7", "Book8", "ExperimentC", "ExperimentD",
+    "Book9", "Book10", "Book11", "Book12", "ExperimentE", "ExperimentF",
+    "Book13", "Book14", "Book15", "Book16", "ExperimentG", "ExperimentH"
+  ];
 
   return (
     <div className="container py-10">
@@ -44,9 +53,21 @@ export default function UploadPage() {
           </Select>
         </div>
         <div>
+          <Select onValueChange={setSelectedBook}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select Book" />
+            </SelectTrigger>
+            <SelectContent>
+              {bookOptions.map((book) => (
+                <SelectItem key={book} value={book}>{book}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
           <Input type="file" onChange={handleFileChange} />
         </div>
-        <Button onClick={handleUpload} disabled={!selectedFile || !selectedSemester}>
+        <Button onClick={handleUpload} disabled={!selectedFile || !selectedSemester || !selectedBook}>
           Upload File
         </Button>
         {selectedFile && (
