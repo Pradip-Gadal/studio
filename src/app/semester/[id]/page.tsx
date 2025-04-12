@@ -139,7 +139,7 @@ interface Props {
 }
 
 export default function SemesterPage({ params }: Props) {
-  const { id } = params;
+  const id = React.use(Promise.resolve(params.id));
   const notes = mockNotes[id] || [];
 
   return (
