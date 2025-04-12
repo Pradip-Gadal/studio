@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'CourseNotes',
-  description: 'Share and Download Course Notes',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +28,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
-        <Footer className="sticky top-[100vh]"/>
+        <Footer/>
       </body>
     </html>
   );

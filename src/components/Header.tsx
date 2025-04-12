@@ -6,7 +6,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import { ProfilePictureContext } from "@/app/_app";
+import { ProfilePictureContext } from '@/app/_app';
 
 export function Header() {
   const { profilePicture, userDetails } = useContext(ProfilePictureContext);
@@ -36,4 +36,3 @@ export function Header() {
     </header>
   );
 }
-

@@ -18,7 +18,6 @@ export default function ProfileDetailsPage() {
   const [university, setUniversity] = useState(userDetails.university || '');
   const [course, setCourse] = useState(userDetails.course || '');
   const [yearSemester, setYearSemester] = useState(userDetails.yearSemester || '');
-  const [bio, setBio] = useState(userDetails.bio || '');
   const { toast } = useToast();
   const router = useRouter();
 
@@ -37,7 +36,6 @@ export default function ProfileDetailsPage() {
       university: university,
       course: course,
       yearSemester: yearSemester,
-      bio: bio,
     });
 
     toast({
@@ -114,13 +112,6 @@ export default function ProfileDetailsPage() {
               onChange={(e) => setYearSemester(e.target.value)}
             />
           </div>
-          <div>
-            <Textarea
-                placeholder="Bio"
-                value={bio}
-                onChange={(e) => setBio(e.target.value)}
-            />
-          </div>
 
           {/* Update Button */}
           <Button className="w-full" onClick={handleUpdate}>Update</Button>
@@ -129,4 +120,3 @@ export default function ProfileDetailsPage() {
     </div>
   );
 }
-

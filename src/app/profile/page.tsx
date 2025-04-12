@@ -17,8 +17,6 @@ export default function ProfilePage() {
     ? `${userDetails.course || "No Course"} at ${userDetails.university}`
     : "No University Details";
 
-  const bio = userDetails.bio || "";
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -51,19 +49,10 @@ export default function ProfilePage() {
             <Link href="/profile/details" className="flex flex-col items-center">
         <h1 className="text-2xl font-bold mt-4">{fullName}</h1>
         <p className="text-sm text-muted-foreground">{description}</p>
-            <p className="text-sm text-muted-foreground text-center mt-2">{bio}</p>
             </Link>
       </div>
 
       <div className="mt-8 space-y-4">
-        <Link href="/profile/details" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
-          <div className="flex items-center space-x-3">
-            <Icons.user className="h-5 w-5 text-muted-foreground"/>
-            <span>Profile Details</span>
-          </div>
-          <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
-        </Link>
-
         <Link href="/profile/upload" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
           <div className="flex items-center space-x-3">
             <Icons.file className="h-5 w-5 text-muted-foreground"/>
@@ -93,4 +82,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
