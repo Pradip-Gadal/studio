@@ -14,9 +14,9 @@ export default function ProfileDetailsPage() {
   const { profilePicture, setProfilePicture, userDetails, setUserDetails } = useContext(ProfilePictureContext);
   const [firstName, setFirstName] = useState(userDetails.firstName || '');
   const [lastName, setLastName] = useState(userDetails.lastName || '');
-  const [university, setUniversity] = useState(userDetails.university);
-  const [course, setCourse] = useState(userDetails.course);
-  const [yearSemester, setYearSemester] = useState(userDetails.yearSemester);
+  const [university, setUniversity] = useState(userDetails.university || '');
+  const [course, setCourse] = useState(userDetails.course || '');
+  const [yearSemester, setYearSemester] = useState(userDetails.yearSemester || '');
   const { toast } = useToast();
   const router = useRouter();
 
@@ -29,8 +29,6 @@ export default function ProfileDetailsPage() {
   };
 
   const handleUpdate = () => {
-    // In a real application, you would send this data to a backend
-    // for persistence.
     setUserDetails({
       firstName: firstName,
       lastName: lastName,
@@ -113,10 +111,6 @@ export default function ProfileDetailsPage() {
               onChange={(e) => setYearSemester(e.target.value)}
             />
           </div>
-          <div>
-            <Input type="file"  className="file:border-0 file:bg-muted file:text-muted-foreground" />
-            <span className='text-muted-foreground'> Upload College ID</span>
-          </div>
 
           {/* Update Button */}
           <Button className="w-full" onClick={handleUpdate}>Update</Button>
@@ -125,3 +119,4 @@ export default function ProfileDetailsPage() {
     </div>
   );
 }
+
