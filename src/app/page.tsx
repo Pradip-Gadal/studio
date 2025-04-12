@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {Grid} from "@/components/Grid";
+import { Grid } from "@/components/Grid";
 import Link from "next/link";
 
 export default function Home() {
@@ -33,4 +33,3 @@ export default function Home() {
     </div>
   );
 }
-
