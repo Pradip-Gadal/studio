@@ -18,7 +18,7 @@ export default function Home() {
       <Grid>
         {semesters.map((semester) => (
           <Link href={`/semester/${semester.id}`} key={semester.id}>
-            <Card className="hover:shadow-md transition-shadow flex flex-col">
+            <Card className="hover:shadow-md transition-shadow flex flex-col h-64">
               <CardHeader>
                 <CardTitle>{semester.name}</CardTitle>
                 <CardDescription>{semester.description}</CardDescription>
