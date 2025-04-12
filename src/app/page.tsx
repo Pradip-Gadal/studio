@@ -42,7 +42,7 @@ export default function Home() {
                 <Link
                   href={`/semester/${semester.id}/${subject.toLowerCase().replace(/ /g, "-")}`}
                   key={subject}
-                  className="text-blue-500 hover:underline"
+                  className="mb-2 px-4 py-2 rounded-full bg-secondary text-primary hover:bg-accent hover:text-accent-foreground shadow-md transition-colors duration-200 border border-gray-300"
                 >
                   {subject}
                 </Link>
