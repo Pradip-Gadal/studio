@@ -1,26 +1,21 @@
 "use client";
 
-import React, { useState, useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import Link from "next/link";
 import { ProfilePictureContext } from '@/app/_app';
 
 export default function ProfilePage() {
   const { profilePicture, userDetails } = useContext(ProfilePictureContext);
-  // This would normally be fetched from an API
-  const [localUserDetails, setUserDetails] = useState({
-    name: "Nisha Chaudhary",
-    major: "Engineering Student",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.",
-  });
 
-  const fullName = userDetails.firstName ? `${userDetails.firstName} ${userDetails.lastName || ''}` : localUserDetails.name;
+  const fullName = userDetails.firstName ? `${userDetails.firstName} ${userDetails.lastName || ''}` : 'No Name';
 
   const description = userDetails.university
-    ? `${userDetails.course || localUserDetails.major} at ${userDetails.university}`
-    : localUserDetails.major;
+    ? `${userDetails.course || 'No Course'} at ${userDetails.university}`
+    : 'No University Details';
+
+  const bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.";
 
   return (
     <div className="container py-10">
@@ -33,9 +28,9 @@ export default function ProfilePage() {
         </div>
         <h1 className="text-2xl font-bold mt-4">{fullName}</h1>
         <p className="text-sm text-muted-foreground">{description}</p>
-        <p className="text-sm text-muted-foreground text-center mt-2">
-          {localUserDetails.bio}
-        </p>
+        {/*<p className="text-sm text-muted-foreground text-center mt-2">*/}
+        {/*  {bio}*/}
+        {/*</p>*/}
       </div>
 
       <div className="mt-8 space-y-4">
@@ -71,7 +66,7 @@ export default function ProfilePage() {
           <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
         </Link>
 
-        <Button className="w-full mt-8">Logout</Button>
+        <Link href="/" className="w-full mt-8 flex items-center justify-center p-4 rounded-md hover:bg-secondary">Logout</Link>
       </div>
     </div>
   );
