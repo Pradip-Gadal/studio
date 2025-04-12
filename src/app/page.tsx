@@ -33,9 +33,8 @@ export default function Home() {
 
   return (
     <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-6">MSC.Physics</h1>
       {/* Search Bar Section */}
-      <div className="w-full flex justify-center items-center mb-6">
+      <div className="w-full flex justify-center items-center mb-4">
         <div className="flex items-center gap-2 w-full max-w-md">
           <Input type="search" placeholder="Search notes..." className="flex-1" />
           <Button className="flex items-center">
@@ -44,6 +43,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
+      <h1 className="text-3xl font-bold mb-6 text-center">MSC.Physics</h1>
 
       <Grid>
         {semesters.map((semester) => (
@@ -71,4 +71,3 @@ export default function Home() {
     </div>
   );
 }
-
