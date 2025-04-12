@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ProfilePictureContext } from '@/app/_app';
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const { profilePicture, userDetails } = useContext(ProfilePictureContext);
@@ -14,7 +15,7 @@ export function Header() {
     <header className="bg-header-background border-b py-4">
       <div className="container flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-header-foreground pl-4">
-          Prototype
+          PrototypeStage1
         </Link>
         <Link href="/profile">
           <Avatar>
