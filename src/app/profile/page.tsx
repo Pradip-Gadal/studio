@@ -1,23 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import Link from "next/link";
+import { ProfilePictureContext } from "@/app/layout";
 
 export default function ProfilePage() {
+  const { profilePicture } = useContext(ProfilePictureContext);
+
   return (
     <div className="container py-10">
       <div className="flex flex-col items-center">
         <div className="relative">
           <Avatar className="h-24 w-24">
-            <AvatarImage className="aspect-square h-full w-full" alt="Profile" src="https://picsum.photos/100/100"/>
+            <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={profilePicture || "https://picsum.photos/100/100"}/>
             <AvatarFallback>NC</AvatarFallback>
           </Avatar>
-          <Button size="icon" className="absolute bottom-0 right-0 rounded-full shadow-md">
-            <Icons.edit className="h-4 w-4"/>
-          </Button>
         </div>
         <h1 className="text-2xl font-bold mt-4">Nisha Chaudhary</h1>
         <p className="text-sm text-muted-foreground">Engineering Student</p>
@@ -64,5 +64,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-

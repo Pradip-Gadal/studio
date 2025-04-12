@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import * as Primitive from "@radix-ui/react-avatar"
+import { ProfilePictureContext } from "@/app/layout";
 
 export function Header() {
+  const { profilePicture } = useContext(ProfilePictureContext);
+
   return (
     <header className="bg-secondary border-b py-4">
       <div className="container flex items-center justify-between">
@@ -24,7 +27,7 @@ export function Header() {
         </div>
         <Link href="/profile">
           <Avatar>
-            <AvatarImage className="aspect-square h-full w-full" alt="Profile" src="https://picsum.photos/50/50"/>
+            <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={profilePicture || "https://picsum.photos/50/50"}/>
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </Link>
@@ -32,4 +35,3 @@ export function Header() {
     </header>
   );
 }
-
