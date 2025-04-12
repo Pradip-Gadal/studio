@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-6">Course Notes</h1>
+      <h1 className="text-3xl font-bold mb-6">MSC.Physics</h1>
       <Grid>
         {semesters.map((semester) => (
           <Link href={`/semester/${semester.id}`} key={semester.id} className="flex flex-col h-full">
@@ -33,3 +33,4 @@ export default function Home() {
     </div>
   );
 }
+
