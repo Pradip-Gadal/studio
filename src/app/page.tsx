@@ -17,7 +17,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6">Course Notes</h1>
       <Grid>
         {semesters.map((semester) => (
-          <Link href={`/semester/${semester.id}`} key={semester.id}>
+          <Link href={`/semester/${semester.id}`} key={semester.id} className="flex flex-col h-full">
             <Card className="hover:shadow-md transition-shadow flex flex-col h-64 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200">
               <CardHeader>
                 <CardTitle>{semester.name}</CardTitle>
