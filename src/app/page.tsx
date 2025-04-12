@@ -32,7 +32,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="container py-10 px-4">
+    <div className="container py-10 px-4"> {/* Add px-4 for left and right padding */}
       {/* Search Bar Section */}
       <div className="w-full flex justify-center items-center mb-4">
         <div className="flex items-center gap-2 w-full max-w-md">
@@ -47,13 +47,23 @@ export default function Home() {
 
       <Grid>
         {semesters.map((semester) => (
-          <div key={semester.id}>
-            <Card className="col-span-12 md:col-span-6 lg:col-span-4">
-               <CardHeader><CardTitle>{semester.name}</CardTitle></CardHeader><CardContent>{semester.subjects.map((subject) => (<div key={subject} >{subject}</div>))}</CardContent>
-            </Card>
-          </div>
+            
+              
+                
+                  {semester.name}
+                
+                
+                  {semester.subjects.map((subject) => (
+                      
+                        {subject}
+                      
+                  ))}
+                
+              
+            
         ))}
       </Grid>
     </div>
   );
+}
 
