@@ -57,7 +57,7 @@ export default function ProfilePage() {
           <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
         </Link>
 
-        <Link href="#" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
+        <Link href="/profile/settings" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
           <div className="flex items-center space-x-3">
             <Icons.settings className="h-5 w-5 text-muted-foreground"/>
             <span>Settings</span>
@@ -70,4 +70,5 @@ export default function ProfilePage() {
     </div>
   );
 }
+
 
