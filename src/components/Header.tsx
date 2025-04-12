@@ -11,15 +11,15 @@ export function Header() {
   const headerAvatarSrc = profilePicture || userDetails.profilePicture || "https://via.placeholder.com/100";
 
   return (
-    <header className="bg-secondary border-b py-4">
+    <header className="bg-header-background border-b py-4">
       <div className="container flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">
+      <Link href="/" className="text-xl font-bold text-header-foreground">
           MSC.Physics
         </Link>
         <Link href="/profile">
           <Avatar>
             <AvatarImage className="aspect-square h-full w-full" alt="Profile" src={headerAvatarSrc} />
-            <AvatarFallback>
+            <AvatarFallback className="border border-border">
               {(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'N'}
               {(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}
             </AvatarFallback>
@@ -29,3 +29,4 @@ export function Header() {
     </header>
   );
 }
+
