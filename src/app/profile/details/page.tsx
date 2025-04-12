@@ -6,14 +6,14 @@ import {Button} from '@/components/ui/button';
 import {Icons} from '@/components/icons';
 import {Input} from '@/components/ui/input';
 import {cn} from '@/lib/utils';
-import { ProfilePictureContext } from '@/app/layout';
+import { ProfilePictureContext } from '@/app/_app';
 import { useToast } from "@/hooks/use-toast"
 
 export default function ProfileDetailsPage() {
-  const { profilePicture, setProfilePicture } = useContext(ProfilePictureContext);
-  const [university, setUniversity] = useState('');
-  const [course, setCourse] = useState('');
-  const [yearSemester, setYearSemester] = useState('');
+  const { profilePicture, setProfilePicture, userDetails, setUserDetails } = useContext(ProfilePictureContext);
+  const [university, setUniversity] = useState(userDetails.university);
+  const [course, setCourse] = useState(userDetails.course);
+  const [yearSemester, setYearSemester] = useState(userDetails.yearSemester);
   const { toast } = useToast();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +27,12 @@ export default function ProfileDetailsPage() {
   const handleUpdate = () => {
     // In a real application, you would send this data to a backend
     // for persistence.
+    setUserDetails({
+      university: university,
+      course: course,
+      yearSemester: yearSemester,
+    });
+
     toast({
       title: "Profile Updated!",
       description: "Your profile has been updated successfully.",

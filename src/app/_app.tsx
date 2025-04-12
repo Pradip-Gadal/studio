@@ -1,11 +1,9 @@
 'use client';
 
+import '@/app/globals.css';
 import type {Metadata} from 'next';
 import {Geist, Geist_Mono} from 'next/font/google';
-import './globals.css';
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,31 +15,40 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+interface UserDetails {
+  university: string;
+  course: string;
+  yearSemester: string;
+}
+
 interface ProfilePictureContextType {
   profilePicture: string | null;
   setProfilePicture: React.Dispatch<React.SetStateAction<string | null>>;
+  userDetails: UserDetails;
+  setUserDetails: React.Dispatch<React.SetStateAction<UserDetails>>;
 }
 
 export const ProfilePictureContext = createContext<ProfilePictureContextType>({
   profilePicture: null,
   setProfilePicture: () => {},
+  userDetails: { university: '', course: '', yearSemester: '' },
+  setUserDetails: () => {},
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface Props {
   children: React.ReactNode;
-}>) {
+}
+
+export default function App({children}: Props) {
   const [profilePicture, setProfilePicture] = useState<string | null>(null);
+  const [userDetails, setUserDetails] = useState<UserDetails>({ university: '', course: '', yearSemester: '' });
 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-1">
+        <ProfilePictureContext.Provider value={{ profilePicture, setProfilePicture, userDetails, setUserDetails }}>
           {children}
-        </main>
-        <Footer className="sticky top-[100vh]"/>
+        </ProfilePictureContext.Provider>
       </body>
     </html>
   );

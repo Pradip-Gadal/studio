@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import * as Primitive from "@radix-ui/react-avatar"
-import { ProfilePictureContext } from "@/app/layout";
+import { ProfilePictureContext } from "@/app/_app";
 
 export function Header() {
   const { profilePicture } = useContext(ProfilePictureContext);
