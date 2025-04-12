@@ -2,7 +2,7 @@ import React from "react";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary border-t py-4 text-center absolute bottom-0 w-full">
+    <footer className="bg-secondary border-t py-4 text-center w-full">
       <div className="container">
         <p>&copy; {new Date().getFullYear()} CourseNotes. All rights reserved.</p>
       </div>
