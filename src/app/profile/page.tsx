@@ -27,7 +27,7 @@ export default function ProfilePage() {
       </div>
 
       <div className="mt-8 space-y-4">
-        <Link href="#" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
+        <Link href="/profile/details" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
           <div className="flex items-center space-x-3">
             <Icons.user className="h-5 w-5 text-muted-foreground"/>
             <span>Profile Details</span>
