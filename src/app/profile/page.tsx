@@ -41,10 +41,10 @@ export default function ProfilePage() {
           <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
         </Link>
 
-        <Link href="#" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
+        <Link href="/profile/upload" className="flex items-center justify-between p-4 rounded-md hover:bg-secondary">
           <div className="flex items-center space-x-3">
             <Icons.file className="h-5 w-5 text-muted-foreground"/>
-            <span>Uploaded Files</span>
+            <span>Upload Files</span>
           </div>
           <Icons.arrowRight className="h-4 w-4 text-muted-foreground"/>
         </Link>
