@@ -37,12 +37,12 @@ export default function Home() {
             <CardHeader>
               <CardTitle>{semester.name}</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col items-start h-full">
+            <CardContent className="flex flex-wrap justify-center items-start h-full">
               {semester.subjects.map((subject) => (
                 <Link
                   href={`/semester/${semester.id}/${subject.toLowerCase().replace(/ /g, "-")}`}
                   key={subject}
-                  className="mb-2 px-4 py-2 rounded-full bg-secondary text-primary hover:bg-accent hover:text-accent-foreground shadow-md transition-colors duration-200 border border-gray-300"
+                  className="m-1 px-4 py-2 rounded-full bg-secondary text-primary hover:bg-accent hover:text-accent-foreground shadow-md transition-colors duration-200 border border-gray-300"
                 >
                   {subject}
                 </Link>
