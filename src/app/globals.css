@@ -8,66 +8,66 @@ body {
 
 @layer base {
   :root {
-    --background: 240 5% 98%; /* Light Gray */
-    --foreground: 240 10% 3.9%; /* Dark Gray */
-    --card: 240 5% 96%; /* Lighter Gray */
-    --card-foreground: 240 10% 3.9%; /* Dark Gray */
-    --popover: 240 5% 96%; /* Lighter Gray */
-    --popover-foreground: 240 10% 3.9%; /* Dark Gray */
-    --primary: 142.9 76.9% 47.1%; /* Teal */
-    --primary-foreground: 210 20% 98%; /* Very Light Gray */
-    --secondary: 220 14.3% 95.1%; /* Very Light Blue */
-    --secondary-foreground: 220.9 39.3% 11%; /* Dark Blue */
-    --muted: 220 13% 80%; /* Light Grayish Blue */
-    --muted-foreground: 220 8.9% 46.1%; /* Grayish Blue */
-    --accent: 0 0% 90%; /* Light Gray */
-    --accent-foreground: 20 14.3% 4.1%; /* Dark Reddish */
-    --destructive: 0 84.2% 60.2%; /* Red */
-    --destructive-foreground: 210 20% 98%; /* Very Light Gray */
-    --border: 220 14.3% 95.1%; /* Very Light Blue */
-    --input: 220 14.3% 95.1%; /* Very Light Blue */
-    --ring: 142.9 76.9% 47.1%; /* Teal */
+    --background: #F4EEFF; /* Light Lavender */
+    --foreground: #424874; /* Dark Indigo */
+    --card: #DCD6F7; /* Light Grayish Lavender */
+    --card-foreground: #424874; /* Dark Indigo */
+    --popover: #DCD6F7; /* Light Grayish Lavender */
+    --popover-foreground: #424874; /* Dark Indigo */
+    --primary: #A6B1E1; /* Lavender */
+    --primary-foreground: #424874; /* Dark Indigo */
+    --secondary: #F4EEFF; /* Very Light Lavender */
+    --secondary-foreground: #424874; /* Dark Indigo */
+    --muted: #DCD6F7; /* Light Grayish Lavender */
+    --muted-foreground: #A6B1E1; /* Lavender */
+    --accent: #A6B1E1; /* Lavender */
+    --accent-foreground: #424874; /* Dark Indigo */
+    --destructive: #F4EEFF; /* Very Light Lavender */
+    --destructive-foreground: #424874; /* Dark Indigo */
+    --border: #A6B1E1; /* Lavender */
+    --input: #DCD6F7; /* Light Grayish Lavender */
+    --ring: #424874; /* Dark Indigo */
     --radius: 0.5rem;
-    --sidebar-background: 220 14.3% 95.1%;
-    --sidebar-foreground: 220.9 39.3% 11%;
-    --sidebar-primary: 142.9 76.9% 47.1%;
-    --sidebar-primary-foreground: 210 20% 98%;
-    --sidebar-accent: 0 0% 90%;
-    --sidebar-accent-foreground: 20 14.3% 4.1%;
-    --sidebar-border: 220 14.3% 95.1%;
-    --sidebar-ring: 142.9 76.9% 47.1%;
+    --sidebar-background: #DCD6F7;
+    --sidebar-foreground: #424874;
+    --sidebar-primary: #A6B1E1;
+    --sidebar-primary-foreground: #424874;
+    --sidebar-accent: #A6B1E1;
+    --sidebar-accent-foreground: #424874;
+    --sidebar-border: #A6B1E1;
+    --sidebar-ring: #424874;
     --header-background: #153448; /* Dark Indigo */
     --header-foreground: #F4EEFF; /* Very Light Lavender */
   }
 
   .dark {
-    --background: 240 10% 3.9%; /* Dark Gray */
-    --foreground: 210 20% 98%; /* Very Light Gray */
-    --card: 240 10% 3.9%; /* Dark Gray */
-    --card-foreground: 210 20% 98%; /* Very Light Gray */
-    --popover: 240 10% 3.9%; /* Dark Gray */
-    --popover-foreground: 210 20% 98%; /* Very Light Gray */
-    --primary: 142.9 76.9% 47.1%; /* Teal */
-    --primary-foreground: 210 20% 98%; /* Very Light Gray */
-    --secondary: 220 14.3% 95.1%; /* Very Light Blue */
-    --secondary-foreground: 220.9 39.3% 11%; /* Dark Blue */
-    --muted: 220 13% 80%; /* Light Grayish Blue */
-    --muted-foreground: 220 8.9% 46.1%; /* Grayish Blue */
-    --accent: 0 0% 90%; /* Light Gray */
-    --accent-foreground: 20 14.3% 4.1%; /* Dark Reddish */
-    --destructive: 0 62.8% 30.6%; /* Dark Red */
-    --destructive-foreground: 210 20% 98%; /* Very Light Gray */
-    --border: 220 14.3% 95.1%; /* Very Light Blue */
-    --input: 220 14.3% 95.1%; /* Very Light Blue */
-    --ring: 142.9 76.9% 47.1%; /* Teal */
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 210 20% 98%;
-    --sidebar-primary: 142.9 76.9% 47.1%;
-    --sidebar-primary-foreground: 210 20% 98%;
-    --sidebar-accent: 0 0% 90%;
-    --sidebar-accent-foreground: 20 14.3% 4.1%;
-    --sidebar-border: 220 14.3% 95.1%;
-    --sidebar-ring: 142.9 76.9% 47.1%;
+    --background: #424874; /* Dark Indigo */
+    --foreground: #F4EEFF; /* Very Light Lavender */
+    --card: #A6B1E1; /* Lavender */
+    --card-foreground: #F4EEFF; /* Very Light Lavender */
+    --popover: #A6B1E1; /* Lavender */
+    --popover-foreground: #F4EEFF; /* Very Light Lavender */
+    --primary: #DCD6F7; /* Light Grayish Lavender */
+    --primary-foreground: #424874; /* Dark Indigo */
+    --secondary: #A6B1E1; /* Lavender */
+    --secondary-foreground: #424874; /* Dark Indigo */
+    --muted: #A6B1E1; /* Lavender */
+    --muted-foreground: #DCD6F7; /* Light Grayish Lavender */
+    --accent: #A6B1E1; /* Lavender */
+    --accent-foreground: #424874; /* Dark Indigo */
+    --destructive: #DCD6F7; /* Light Grayish Lavender */
+    --destructive-foreground: #424874; /* Dark Indigo */
+    --border: #A6B1E1; /* Lavender */
+    --input: #DCD6F7; /* Light Grayish Lavender */
+    --ring: #F4EEFF; /* Very Light Lavender */
+    --sidebar-background: #A6B1E1;
+    --sidebar-foreground: #424874;
+    --sidebar-primary: #DCD6F7;
+    --sidebar-primary-foreground: #424874;
+    --sidebar-accent: #A6B1E1;
+    --sidebar-accent-foreground: #424874;
+    --sidebar-border: #A6B1E1;
+    --sidebar-ring: #F4EEFF;
     --header-background: #153448; /* Dark Indigo */
     --header-foreground: #F4EEFF; /* Very Light Lavender */
   }
@@ -81,3 +81,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
