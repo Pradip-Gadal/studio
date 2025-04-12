@@ -9,13 +9,13 @@ import { ProfilePictureContext } from '@/app/_app';
 export default function ProfilePage() {
   const { profilePicture, userDetails } = useContext(ProfilePictureContext);
 
-  const fullName = userDetails.firstName ? `${userDetails.firstName} ${userDetails.lastName || ''}` : 'No Name';
+  const fullName = userDetails.firstName ? `${userDetails.firstName} ${userDetails.lastName || ""}` : "No Name";
 
   const description = userDetails.university
-    ? `${userDetails.course || 'No Course'} at ${userDetails.university}`
-    : 'No University Details';
+    ? `${userDetails.course || "No Course"} at ${userDetails.university}`
+    : "No University Details";
 
-  const bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.";
+  const bio = userDetails.bio || "";
 
   return (
     <div className="container py-10">
@@ -26,11 +26,11 @@ export default function ProfilePage() {
             <AvatarFallback>{(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'NC'}{(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}</AvatarFallback>
           </Avatar>
         </div>
+            <Link href="/profile/details" className="flex flex-col items-center">
         <h1 className="text-2xl font-bold mt-4">{fullName}</h1>
         <p className="text-sm text-muted-foreground">{description}</p>
-        {/*<p className="text-sm text-muted-foreground text-center mt-2">*/}
-        {/*  {bio}*/}
-        {/*</p>*/}
+            <p className="text-sm text-muted-foreground text-center mt-2">{bio}</p>
+            </Link>
       </div>
 
       <div className="mt-8 space-y-4">

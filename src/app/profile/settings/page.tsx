@@ -1,7 +1,11 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icons } from '@/components/icons';
 import Link from 'next/link';
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {ProfilePictureContext} from "@/app/_app";
 
 const SettingOptions = [
   {
@@ -37,6 +41,16 @@ const SettingOptions = [
 ];
 
 export default function SettingsPage() {
+  const { profilePicture, setProfilePicture, userDetails } = useContext(ProfilePictureContext);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setProfilePicture(imageUrl);
+    }
+  };
+
   return (
     <div className="container py-10">
       <div className="flex flex-col items-start w-full">
@@ -46,6 +60,31 @@ export default function SettingsPage() {
         </Link>
 
         <h1 className="text-2xl font-bold mb-6">Settings</h1>
+
+        <div className="flex flex-col items-center mb-4">
+          <div className="relative">
+            <Avatar className="h-24 w-24">
+              <AvatarImage
+                  className="aspect-square h-full w-full"
+                  alt="Profile"
+                  src={profilePicture || "https://picsum.photos/100/100"}
+              />
+              <AvatarFallback>{(userDetails.firstName && userDetails.firstName[0].toUpperCase()) || 'NC'}{(userDetails.lastName && userDetails.lastName[0].toUpperCase()) || ''}</AvatarFallback>
+            </Avatar>
+            <label htmlFor="image-upload">
+              <Button size="icon" className="absolute bottom-0 right-0 rounded-full shadow-md" >
+                <Icons.edit className="h-4 w-4" />
+              </Button>
+            </label>
+            <Input
+                type="file"
+                id="image-upload"
+                accept="image/*"
+                className="hidden"
+                onChange={handleImageChange}
+            />
+          </div>
+        </div>
 
         <div className="w-full space-y-4">
           {SettingOptions.map((option, index) => (
@@ -66,7 +105,3 @@ export default function SettingsPage() {
     </div>
   );
 }
-
-
-
-    
