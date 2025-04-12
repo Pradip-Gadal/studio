@@ -23,7 +23,7 @@ export default function Home() {
                 <CardTitle>{semester.name}</CardTitle>
                 <CardDescription>{semester.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-grow">
+              <CardContent className="flex items-end h-full">
                 <p>Click to view notes.</p>
               </CardContent>
             </Card>
