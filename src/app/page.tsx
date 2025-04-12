@@ -54,7 +54,7 @@ export default function Home() {
             <CardHeader>
               <CardTitle>{semester.name}</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-wrap justify-center items-start h-full">
+            <CardContent className="flex flex-wrap justify-center items-start h-full overflow-y-auto">
               {semester.subjects.map((subject) => (
                 <Link
                   href={`/semester/${subject}`}
@@ -71,3 +71,4 @@ export default function Home() {
     </div>
   );
 }
+
