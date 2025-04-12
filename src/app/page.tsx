@@ -40,7 +40,7 @@ export default function Home() {
             <CardContent className="flex flex-wrap justify-center items-start h-full">
               {semester.subjects.map((subject) => (
                 <Link
-                  href={`/semester/${semester.id}/${subject.toLowerCase().replace(/ /g, "-")}`}
+                  href={`/semester/${subject}`}
                   key={subject}
                   className="m-1 px-4 py-2 rounded-full bg-secondary text-primary hover:bg-accent hover:text-accent-foreground shadow-md transition-colors duration-200 border border-gray-300"
                 >
