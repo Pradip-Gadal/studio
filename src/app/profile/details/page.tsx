@@ -9,14 +9,12 @@ import {cn} from '@/lib/utils';
 import { ProfilePictureContext } from '@/app/layout';
 
 export default function ProfileDetailsPage() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const { setProfilePicture } = useContext(ProfilePictureContext);
+  const { profilePicture, setProfilePicture } = useContext(ProfilePictureContext);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
-      setSelectedImage(imageUrl);
       setProfilePicture(imageUrl);
     }
   };
@@ -30,12 +28,12 @@ export default function ProfileDetailsPage() {
             <AvatarImage
               className="aspect-square h-full w-full"
               alt="Profile"
-              src={selectedImage || "https://picsum.photos/100/100"}
+              src={profilePicture || "https://picsum.photos/100/100"}
             />
             <AvatarFallback>NC</AvatarFallback>
           </Avatar>
           <label htmlFor="image-upload">
-            <Button size="icon" className="absolute bottom-0 right-0 rounded-full shadow-md">
+            <Button size="icon" className="absolute bottom-0 right-0 rounded-full shadow-md" >
               <Icons.edit className="h-4 w-4" />
             </Button>
           </label>
@@ -60,7 +58,7 @@ export default function ProfileDetailsPage() {
             <Input type="text" placeholder="Year/Semester" />
           </div>
           <div>
-            <Input type="file" placeholder="Upload College ID" className="file:border-0 file:bg-muted file:text-muted-foreground" />
+            <Input type="file"  className="file:border-0 file:bg-muted file:text-muted-foreground" />
             <span className='text-muted-foreground'> Upload College ID</span>
           </div>
 
