@@ -38,12 +38,8 @@ export default function ProfileDetailsPage() {
             <Input type="text" placeholder="Year/Semester" />
           </div>
           <div>
-            <Input type="file" placeholder="Upload College ID" className="file:border-0 file:bg-muted file:text-muted-foreground">
-              <div className="flex items-center justify-between">
-                <span>Upload College ID</span>
-                <Icons.settings className="h-4 w-4 text-muted-foreground" />
-              </div>
-            </Input>
+            <Input type="file" placeholder="Upload College ID" className="file:border-0 file:bg-muted file:text-muted-foreground" />
+               <span className='text-muted-foreground'> Upload College ID</span>
           </div>
 
           {/* Update Button */}
@@ -53,3 +49,4 @@ export default function ProfileDetailsPage() {
     </div>
   );
 }
+
