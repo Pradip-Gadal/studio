@@ -8,78 +8,78 @@ body {
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;  /* Very Dark Gray */
-    --foreground: 39 100% 66.7%; /* Bright Coral */
-    --card: 220 13% 16.1%; /* Dark Blue-Gray */
-    --card-foreground: 0 0% 98%;   /* White */
-    --popover: 220 13% 16.1%; /* Dark Blue-Gray */
-    --popover-foreground: 0 0% 98%;   /* White */
-    --primary: 39 100% 66.7%; /* Bright Coral */
-    --primary-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --secondary: 48 95% 85.7%; /* Soft Yellow */
-    --secondary-foreground: 220 13% 16.1%; /* Dark Blue-Gray */
-    --muted: 25 24% 43%;     /* Medium Gray */
-    --muted-foreground: 25 24% 43%;     /* Medium Gray */
-    --accent: 51 84% 67%;     /* Teal */
-    --accent-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --destructive: 0 63% 50%; /* Red */
-    --destructive-foreground: 0 0% 98%;   /* White */
-    --border: 220 13% 23%;    /* Darker Blue-Gray */
-    --input: 220 13% 23%;    /* Darker Blue-Gray */
-    --ring: 39 100% 66.7%; /* Bright Coral */
-    --chart-1: 39 100% 66.7%; /* Bright Coral */
-    --chart-2: 48 95% 85.7%; /* Soft Yellow */
-    --chart-3: 51 84% 67%;     /* Teal */
-    --chart-4: 0 0% 98%;   /* White */
-    --chart-5: 240 10% 3.9%;  /* Very Dark Gray */
+    --background: #F4EEFF; /* Very Light Lavender */
+    --foreground: #424874; /* Dark Indigo */
+    --card: #DCD6F7; /* Light Lavender */
+    --card-foreground: #424874; /* Dark Indigo */
+    --popover: #DCD6F7; /* Light Lavender */
+    --popover-foreground: #424874; /* Dark Indigo */
+    --primary: #A6B1E1; /* Soft Blue */
+    --primary-foreground: #424874; /* Dark Indigo */
+    --secondary: #F4EEFF; /* Very Light Lavender */
+    --secondary-foreground: #424874; /* Dark Indigo */
+    --muted: #A6B1E1; /* Soft Blue */
+    --muted-foreground: #424874; /* Dark Indigo */
+    --accent: #A6B1E1; /* Soft Blue */
+    --accent-foreground: #424874; /* Dark Indigo */
+    --destructive: #424874; /* Dark Indigo */
+    --destructive-foreground: #F4EEFF; /* Very Light Lavender */
+    --border: #A6B1E1; /* Soft Blue */
+    --input: #DCD6F7; /* Light Lavender */
+    --ring: #424874; /* Dark Indigo */
+    --chart-1: #424874; /* Dark Indigo */
+    --chart-2: #A6B1E1; /* Soft Blue */
+    --chart-3: #DCD6F7; /* Light Lavender */
+    --chart-4: #F4EEFF; /* Very Light Lavender */
+    --chart-5: #424874; /* Dark Indigo */
     --radius: 0.5rem;
-    --sidebar-background: 220 13% 16.1%; /* Dark Blue-Gray */
-    --sidebar-foreground: 0 0% 98%;   /* White */
-    --sidebar-primary: 39 100% 66.7%; /* Bright Coral */
-    --sidebar-primary-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --sidebar-accent: 51 84% 67%;     /* Teal */
-    --sidebar-accent-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --sidebar-border: 220 13% 23%;    /* Darker Blue-Gray */
-    --sidebar-ring: 39 100% 66.7%; /* Bright Coral */
-    --header-background: 240 10% 3.9%;  /* Very Dark Gray */
-    --header-foreground: 0 0% 98%;   /* White */
+    --sidebar-background: #DCD6F7; /* Light Lavender */
+    --sidebar-foreground: #424874; /* Dark Indigo */
+    --sidebar-primary: #A6B1E1; /* Soft Blue */
+    --sidebar-primary-foreground: #424874; /* Dark Indigo */
+    --sidebar-accent: #A6B1E1; /* Soft Blue */
+    --sidebar-accent-foreground: #424874; /* Dark Indigo */
+    --sidebar-border: #A6B1E1; /* Soft Blue */
+    --sidebar-ring: #424874; /* Dark Indigo */
+    --header-background: #424874; /* Dark Indigo */
+    --header-foreground: #F4EEFF; /* Very Light Lavender */
   }
 
   .dark {
-    --background: 240 10% 3.9%;  /* Very Dark Gray */
-    --foreground: 39 100% 66.7%; /* Bright Coral */
-    --card: 220 13% 16.1%; /* Dark Blue-Gray */
-    --card-foreground: 0 0% 98%;   /* White */
-    --popover: 220 13% 16.1%; /* Dark Blue-Gray */
-    --popover-foreground: 0 0% 98%;   /* White */
-    --primary: 39 100% 66.7%; /* Bright Coral */
-    --primary-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --secondary: 48 95% 85.7%; /* Soft Yellow */
-    --secondary-foreground: 220 13% 16.1%; /* Dark Blue-Gray */
-    --muted: 25 24% 43%;     /* Medium Gray */
-    --muted-foreground: 25 24% 43%;     /* Medium Gray */
-    --accent: 51 84% 67%;     /* Teal */
-    --accent-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --destructive: 0 63% 50%; /* Red */
-    --destructive-foreground: 0 0% 98%;   /* White */
-    --border: 220 13% 23%;    /* Darker Blue-Gray */
-    --input: 220 13% 23%;    /* Darker Blue-Gray */
-    --ring: 39 100% 66.7%; /* Bright Coral */
-    --chart-1: 39 100% 66.7%; /* Bright Coral */
-    --chart-2: 48 95% 85.7%; /* Soft Yellow */
-    --chart-3: 51 84% 67%;     /* Teal */
-    --chart-4: 0 0% 98%;   /* White */
-    --chart-5: 240 10% 3.9%;  /* Very Dark Gray */
-    --sidebar-background: 220 13% 16.1%; /* Dark Blue-Gray */
-    --sidebar-foreground: 0 0% 98%;   /* White */
-    --sidebar-primary: 39 100% 66.7%; /* Bright Coral */
-    --sidebar-primary-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --sidebar-accent: 51 84% 67%;     /* Teal */
-    --sidebar-accent-foreground: 240 10% 3.9%;  /* Very Dark Gray */
-    --sidebar-border: 220 13% 23%;    /* Darker Blue-Gray */
-    --sidebar-ring: 39 100% 66.7%; /* Bright Coral */
-    --header-background: 240 10% 3.9%;  /* Very Dark Gray */
-    --header-foreground: 0 0% 98%;   /* White */
+    --background: #424874; /* Dark Indigo */
+    --foreground: #F4EEFF; /* Very Light Lavender */
+    --card: #A6B1E1; /* Soft Blue */
+    --card-foreground: #424874; /* Dark Indigo */
+    --popover: #A6B1E1; /* Soft Blue */
+    --popover-foreground: #424874; /* Dark Indigo */
+    --primary: #DCD6F7; /* Light Lavender */
+    --primary-foreground: #424874; /* Dark Indigo */
+    --secondary: #A6B1E1; /* Soft Blue */
+    --secondary-foreground: #424874; /* Dark Indigo */
+    --muted: #A6B1E1; /* Soft Blue */
+    --muted-foreground: #424874; /* Dark Indigo */
+    --accent: #DCD6F7; /* Light Lavender */
+    --accent-foreground: #424874; /* Dark Indigo */
+    --destructive: #F4EEFF; /* Very Light Lavender */
+    --destructive-foreground: #424874; /* Dark Indigo */
+    --border: #DCD6F7; /* Light Lavender */
+    --input: #A6B1E1; /* Soft Blue */
+    --ring: #F4EEFF; /* Very Light Lavender */
+    --chart-1: #F4EEFF; /* Very Light Lavender */
+    --chart-2: #DCD6F7; /* Light Lavender */
+    --chart-3: #A6B1E1; /* Soft Blue */
+    --chart-4: #424874; /* Dark Indigo */
+    --chart-5: #F4EEFF; /* Very Light Lavender */
+    --sidebar-background: #424874; /* Dark Indigo */
+    --sidebar-foreground: #F4EEFF; /* Very Light Lavender */
+    --sidebar-primary: #DCD6F7; /* Light Lavender */
+    --sidebar-primary-foreground: #424874; /* Dark Indigo */
+    --sidebar-accent: #A6B1E1; /* Soft Blue */
+    --sidebar-accent-foreground: #424874; /* Dark Indigo */
+    --sidebar-border: #DCD6F7; /* Light Lavender */
+    --sidebar-ring: #F4EEFF; /* Very Light Lavender */
+    --header-background: #424874; /* Dark Indigo */
+    --header-foreground: #F4EEFF; /* Very Light Lavender */
   }
 }
 
