@@ -3,6 +3,9 @@ import React from "react";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import { Grid } from "@/components/Grid";
 import Link from "next/link";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
+import {Icons} from "@/components/icons";
 
 export default function Home() {
   const semesters = [
@@ -30,7 +33,16 @@ export default function Home() {
 
   return (
     <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-6">MSC.Physics</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">MSC.Physics</h1>
+        <div className="flex items-center gap-2">
+          <Input type="search" placeholder="Search notes..." className="max-w-sm" />
+          <Button className="flex items-center">
+            <Icons.search className="mr-2" />
+            Search
+          </Button>
+        </div>
+      </div>
       <Grid>
         {semesters.map((semester) => (
           <Card key={semester.id} className="hover:shadow-md transition-shadow flex flex-col h-80 hover:bg-green-100 transform hover:scale-105 transition-transform duration-200">
