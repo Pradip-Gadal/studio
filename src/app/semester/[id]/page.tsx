@@ -20,22 +20,6 @@ interface Note {
 
 // Mock data - replace with actual data fetching later
 const mockNotes: { [key: string]: Note[] } = {
-  "1": [
-    {id: '1', title: 'Introduction to Physics - Chapter 1', fileType: 'pdf', url: '#'},
-    {id: '2', title: 'Advanced Mechanics - Lecture Notes', fileType: 'docx', url: '#'},
-  ],
-  "2": [
-    {id: '3', title: 'Electromagnetism - Problem Set 1', fileType: 'pdf', url: '#'},
-    {id: '4', title: 'Thermodynamics - Summary', fileType: 'docx', url: '#'},
-  ],
-  "3": [
-    {id: '5', title: 'Quantum Mechanics - Principles', fileType: 'pdf', url: '#'},
-    {id: '6', title: 'Statistical Physics - Assignments', fileType: 'docx', url: '#'},
-  ],
-  "4": [
-    {id: '7', title: 'Nuclear Physics - Concepts', fileType: 'pdf', url: '#'},
-    {id: '8', title: 'Particle Physics - Research', fileType: 'docx', url: '#'},
-  ],
   "Book1": [
     {id: '9', title: 'Book1 - Note 1', fileType: 'pdf', url: '#'},
     {id: '10', title: 'Book1 - Note 2', fileType: 'docx', url: '#'},
@@ -132,6 +116,22 @@ const mockNotes: { [key: string]: Note[] } = {
     {id: '55', title: 'ExperimentH - Note 1', fileType: 'pdf', url: '#'},
     {id: '56', title: 'ExperimentH - Note 2', fileType: 'docx', url: '#'},
   ],
+  "1": [
+    {id: '1', title: 'Introduction to Physics - Chapter 1', fileType: 'pdf', url: '#'},
+    {id: '2', title: 'Advanced Mechanics - Lecture Notes', fileType: 'docx', url: '#'},
+  ],
+  "2": [
+    {id: '3', title: 'Electromagnetism - Problem Set 1', fileType: 'pdf', url: '#'},
+    {id: '4', title: 'Thermodynamics - Summary', fileType: 'docx', url: '#'},
+  ],
+  "3": [
+    {id: '5', title: 'Quantum Mechanics - Principles', fileType: 'pdf', url: '#'},
+    {id: '6', title: 'Statistical Physics - Assignments', fileType: 'docx', url: '#'},
+  ],
+  "4": [
+    {id: '7', title: 'Nuclear Physics - Concepts', fileType: 'pdf', url: '#'},
+    {id: '8', title: 'Particle Physics - Research', fileType: 'docx', url: '#'},
+  ],
 };
 
 interface Props {
@@ -139,14 +139,12 @@ interface Props {
 }
 
 export default function SemesterPage({ params }: Props) {
-  const id = React.use(Promise.resolve(params.id));
+  const { id } = params;
   const notes = mockNotes[id] || [];
 
   return (
-    
-      
-        Notes for {id}
-      
+    <div className="container py-10">
+      Notes for {id}
       
         {notes.map((note) => (
           
