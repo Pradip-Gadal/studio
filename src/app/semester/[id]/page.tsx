@@ -54,4 +54,3 @@ export default function SemesterPage({params}: Props) {
     </div>
   );
 }
-
