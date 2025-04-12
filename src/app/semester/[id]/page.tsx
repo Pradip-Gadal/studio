@@ -22,7 +22,7 @@ interface Props {
 }
 
 export default function SemesterPage({params}: Props) {
-  const semesterId = React.use(React.createElement(React.Fragment, null, params.id));
+  const semesterId = React.use(Promise.resolve(params.id));
 
   return (
     <div className="container py-10">
