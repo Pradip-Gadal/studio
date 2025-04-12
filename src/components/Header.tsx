@@ -14,7 +14,7 @@ export function Header() {
     <header className="bg-header-background border-b py-4">
       <div className="container flex items-center justify-between">
       <Link href="/" className="text-xl font-bold text-header-foreground">
-          MSC.Physics
+          project_prototype
         </Link>
         <Link href="/profile">
           <Avatar>
