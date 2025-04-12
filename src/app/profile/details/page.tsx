@@ -8,6 +8,7 @@ import {Input} from '@/components/ui/input';
 import {cn} from '@/lib/utils';
 import { ProfilePictureContext } from '@/app/_app';
 import { useToast } from "@/hooks/use-toast"
+import { useRouter } from 'next/navigation';
 
 export default function ProfileDetailsPage() {
   const { profilePicture, setProfilePicture, userDetails, setUserDetails } = useContext(ProfilePictureContext);
@@ -15,6 +16,7 @@ export default function ProfileDetailsPage() {
   const [course, setCourse] = useState(userDetails.course);
   const [yearSemester, setYearSemester] = useState(userDetails.yearSemester);
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -37,6 +39,7 @@ export default function ProfileDetailsPage() {
       title: "Profile Updated!",
       description: "Your profile has been updated successfully.",
     });
+    router.push('/profile');
   };
 
   return (
@@ -104,3 +107,4 @@ export default function ProfileDetailsPage() {
     </div>
   );
 }
+
