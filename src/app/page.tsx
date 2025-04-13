@@ -54,7 +54,7 @@ export default function Home() {
           <Input
             type="search"
             placeholder="Search notes..."
-            className="flex-1"
+            className="flex-1 border"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
