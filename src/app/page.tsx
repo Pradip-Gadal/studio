@@ -2,7 +2,6 @@
 import React, {useState} from "react";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Grid} from "@/components/Grid";
-import Link from "next/link";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
@@ -33,20 +32,11 @@ export default function Home() {
   ];
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<string[]>([]);
   const router = useRouter();
 
   const handleSearch = () => {
-    const results: string[] = [];
-    semesters.forEach(semester => {
-      semester.subjects.forEach(subject => {
-        if (subject.toLowerCase().includes(searchTerm.toLowerCase())) {
-          results.push(subject);
-        }
-      });
-    });
-    setSearchResults(results);
-    setSearchTerm(''); // Clear the search term after performing the search
+    router.push(`/search?q=${searchTerm}`);
+    setSearchTerm('');
   };
 
   const handleSubjectClick = (subject: string) => {
@@ -72,19 +62,6 @@ export default function Home() {
         </div>
       </div>
       <h1 className="text-3xl font-bold mb-6 text-center">MSC.Physics</h1>
-
-      {searchResults.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold mb-3">Search Results:</h2>
-          <ul>
-            {searchResults.map((result) => (
-              <li key={result} className="text-lg">
-                <Link href={`/semester/${result}`}>{result}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       <Grid>
         {semesters.map((semester) => (
