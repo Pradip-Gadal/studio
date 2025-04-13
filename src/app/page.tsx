@@ -6,6 +6,7 @@ import Link from "next/link";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const semesters = [
@@ -33,6 +34,7 @@ export default function Home() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<string[]>([]);
+  const router = useRouter();
 
   const handleSearch = () => {
     const results: string[] = [];
@@ -44,6 +46,11 @@ export default function Home() {
       });
     });
     setSearchResults(results);
+    setSearchTerm(''); // Clear the search term after performing the search
+  };
+
+  const handleSubjectClick = (subject: string) => {
+    router.push(`/semester/${subject}`);
   };
 
   return (
@@ -88,9 +95,14 @@ export default function Home() {
             <CardContent className="flex flex-col items-center">
               <div className="flex flex-wrap justify-center gap-2">
                 {semester.subjects.map((subject) => (
-                  <Link key={subject} href={`/semester/${subject}`} className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-sm font-medium hover:bg-secondary/80 shadow-md transition-colors duration-200">
+                  <Button
+                    key={subject}
+                    variant="outline"
+                    className="rounded-full px-3 py-1 text-sm font-medium hover:bg-secondary/80 shadow-md transition-colors duration-200"
+                    onClick={() => handleSubjectClick(subject)}
+                  >
                     {subject}
-                  </Link>
+                  </Button>
                 ))}
               </div>
             </CardContent>
