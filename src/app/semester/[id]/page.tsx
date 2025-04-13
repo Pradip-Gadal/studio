@@ -11,6 +11,7 @@ import {Button} from '@/components/ui/button';
 import {Icons} from '@/components/icons';
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
+import {ThumbsDown} from "lucide-react";
 
 interface Note {
   id: string;
@@ -197,7 +198,7 @@ export default function SemesterPage({ params }: Props) {
                     {note.upvotes}
                   </Button>
                   <Button variant="ghost" size="icon" onClick={() => handleDownvote(note.id)}>
-                    <Icons.trash className="h-4 w-4 mr-1" />
+                    <ThumbsDown className="h-4 w-4 mr-1" />
                     {note.downvotes}
                   </Button>
                 </div>
