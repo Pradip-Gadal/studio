@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import { Grid } from "@/components/Grid";
+import {Grid} from "@/components/Grid";
 import Link from "next/link";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
@@ -31,19 +31,53 @@ export default function Home() {
     },
   ];
 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<string[]>([]);
+
+  const handleSearch = () => {
+    const results: string[] = [];
+    semesters.forEach(semester => {
+      semester.subjects.forEach(subject => {
+        if (subject.toLowerCase().includes(searchTerm.toLowerCase())) {
+          results.push(subject);
+        }
+      });
+    });
+    setSearchResults(results);
+  };
+
   return (
     <div className="container py-10 px-4">
       {/* Search Bar Section */}
       <div className="w-full flex justify-center items-center mb-4">
         <div className="flex items-center gap-2 w-full max-w-md">
-          <Input type="search" placeholder="Search notes..." className="flex-1" />
-          <Button className="flex items-center">
-            <Icons.search className="mr-2" />
+          <Input
+            type="search"
+            placeholder="Search notes..."
+            className="flex-1"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Button className="flex items-center" onClick={handleSearch}>
+            <Icons.search className="mr-2"/>
             Search
           </Button>
         </div>
       </div>
       <h1 className="text-3xl font-bold mb-6 text-center">MSC.Physics</h1>
+
+      {searchResults.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold mb-3">Search Results:</h2>
+          <ul>
+            {searchResults.map((result) => (
+              <li key={result} className="text-lg">
+                <Link href={`/semester/${result}`}>{result}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <Grid>
         {semesters.map((semester) => (

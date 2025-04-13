@@ -10,6 +10,7 @@ import {
 import {Button} from '@/components/ui/button';
 import {Icons} from '@/components/icons';
 import Link from 'next/link';
+import {useParams} from 'next/navigation';
 
 interface Note {
   id: string;
@@ -134,41 +135,34 @@ const mockNotes: { [key: string]: Note[] } = {
   ],
 };
 
-interface Props {
-  params: { id: string; };
-}
-
-export default function SemesterPage({ params }: Props) {
+export default function SemesterPage() {
+  const params = useParams();
   const { id } = params;
   const notes = mockNotes[id] || [];
 
   return (
     <div className="container py-10">
-      Notes for {id}
+      <div>Notes for {id}</div>
       
         {notes.map((note) => (
-          
-            
-              
-            
-            
-              
-                File Type: {note.fileType.toUpperCase()}
-                
-                  
-                    View
-                  
-                
-                
-                  
-                    Download
-                  
-                
-              
-            
-          
+          <Card key={note.id} className="mb-4">
+            <CardHeader>
+              <CardTitle>{note.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>File Type: {note.fileType.toUpperCase()}</p>
+              <div className="flex justify-end">
+                <Button variant="outline" className="mr-2">
+                  View
+                </Button>
+                <Button>
+                  Download
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         ))}
       
-    
+    </div>
   );
 }
