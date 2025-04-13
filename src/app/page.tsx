@@ -58,7 +58,7 @@ export default function Home() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Button className="flex items-center" onClick={handleSearch}>
+          <Button className="flex items-center" onClick={handleSearch} disabled={!searchTerm.length}>
             <Icons.search className="mr-2"/>
             Search
           </Button>
