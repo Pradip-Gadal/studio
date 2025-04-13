@@ -143,7 +143,7 @@ interface Props {
 }
 
 export default function SemesterPage({ params }: Props) {
-  const { id } = params;
+  const id = useParams().id;
   const [notes, setNotes] = useState<Note[]>([...mockNotes[id] || []]);
 
   const handleUpvote = useCallback((noteId: string) => {
